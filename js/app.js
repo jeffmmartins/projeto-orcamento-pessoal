@@ -1,11 +1,11 @@
 class Despesa {
-    constructor() {
-        this.ano
-        this.mes
-        this.dia
-        this.tipo
-        this.descriçao
-        this.valor
+    constructor( ano, mes, dia, tipo, descricao, valor) {
+        this.ano = ano
+        this.mes = mes
+        this.dia = dia
+        this.tipo = tipo
+        this.descriçao = descricao
+        this.valor = valor
     }
 }
 
@@ -25,4 +25,5 @@ function cadastrarDespesa() {
     descricao.value, 
     valor.value
   )
+  console.log(despesa)
 }
