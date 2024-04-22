@@ -7,6 +7,15 @@ class Despesa {
     this.descriçao = descricao;
     this.valor = valor;
   }
+
+  validarDados() {
+    for(let i in this){
+      if(this[i] == undefined || this[i] == "null" || this[i] == "") {
+        return false
+      }
+    }
+    return true
+  }
 }
 
 class Bd {
@@ -50,7 +59,14 @@ function cadastrarDespesa() {
     descricao.value,
     valor.value
   );
-  bd.gravar(despesa);  // chamando o obhjeto bd e na sequencia executando o metodo gravar 
+  
+  // falta fazer o modal
+  if(despesa.validarDados()) {
+    bd.gravar(despesa);  // chamando o obhjeto bd e na sequencia executando o metodo gravar 
+    alert("Registro cadastrado com sucesso")
+  } else {
+    alert("Erro")
+  }
 }
 
 
