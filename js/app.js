@@ -11,7 +11,7 @@ class Despesa {
 
 class Bd {
 
-  constructor () {
+  constructor() {
     let id = localStorage.getItem("id")
 
     if(id === null) {
@@ -20,15 +20,15 @@ class Bd {
   }
 
   getProximoId() { 
-    let proximoId = localStorage.getItem("id") // serve para recuperar o dado, nesse caso o retorno seria null
-    console.log(proximoId)
+    let proximoId = localStorage.getItem("id") ;
+    return parseInt(proximoId) + 1; 
   }
 
-  // class recebe um metodo gravar
   gravar(d) {
-  //localStorage.setItem("despesa", JSON.stringify(d));
-  this.getProximoId
-  };
+  let id = this.getProximoId();
+  localStorage.setItem(id, JSON.stringify(d));
+  localStorage.setItem("id", id);
+  }
 }
 
 let bd = new Bd()
@@ -52,5 +52,7 @@ function cadastrarDespesa() {
   );
   bd.gravar(despesa);  // chamando o obhjeto bd e na sequencia executando o metodo gravar 
 }
+
+
 
 
